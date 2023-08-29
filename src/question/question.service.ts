@@ -1,16 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { QuestionRepository } from './question.repository';
-import { Question } from './question.entity';
+import { questionsWithAnswers } from './questions.data';
 
 @Injectable()
 export class QuestionService {
-	constructor(
-		@InjectRepository(QuestionRepository)
-		private questionRepository: QuestionRepository,
-	) {}
+	private questions = [...questionsWithAnswers];
 	
-	async getAllQuestions(): Promise<Question[]> {
-		return this.questionRepository.find();
+	getRandomQuestion() {
+		const randomIndex = Math.floor(Math.random() * this.questions.length);
+		return this.questions[randomIndex];
 	}
 }
