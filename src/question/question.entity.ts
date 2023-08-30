@@ -4,7 +4,7 @@ import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from 'ty
 @Entity()
 export class Question {
 	@PrimaryGeneratedColumn()
-	id: number;
+	id: string;
 	
 	@Column()
 	question: string;
@@ -16,7 +16,7 @@ export class Question {
 @Entity()
 export class Option {
 	@PrimaryGeneratedColumn()
-	id: number;
+	id: string;
 	
 	@Column()
 	answer: string;

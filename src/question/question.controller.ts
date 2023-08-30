@@ -9,7 +9,7 @@ export class QuestionController {
 	async getRandomQuestion(): Promise<{
 		question: string;
 		options: ( { answer: string; correct: boolean }  )[];
-		id: number
+		id: string
 	}> {
 		return this.questionService.getRandomQuestion();
 	}
